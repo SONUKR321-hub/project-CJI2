@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RankCounsel - Free JEE & NEET Resources</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="card-animations.css">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#4F46E5',
+        secondary: '#10B981'
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '4px',
+        DEFAULT: '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '20px',
+        '2xl': '24px',
+        '3xl': '32px',
+        'full': '9999px',
+        'button': '8px'
+      }
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body { font-family: 'Inter', sans-serif; }
+.search-container {
+  background: rgba(56, 52, 52, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.resource-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.sidebar-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.sidebar-dropdown.active {
+  max-height: 500px;
+}
+.sidebar-button {
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+.sidebar-button i.arrow {
+  transition: transform 0.1s ease;
+}
+.sidebar-button.active i.arrow {
+  transform: rotate(180deg);
+}
+</style>
+</head>
+<body class="bg-white flex">
+<!-- Header Navigation -->
+<nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center">
+        <a href="index.html" class="flex items-center">
+          <img src="logo.svg" alt="RankCounsel Logo" class="h-8" style="height: 4rem;">
+        </a>
+      
+        <div class="hidden md:flex items-center space-x-8 ml-10">
+          <a href="index.html" class="text-gray-700 hover:text-primary">Home</a>
+          <a href="resources.html" class="text-gray-700 hover:text-primary">Resources</a>
+          <a href="counseling.html" class="text-gray-600 hover:text-primary">Counseling</a>
+          <a href="more.html" class="text-gray-700 hover:text-primary">More</a>
+          <a href="https://wa.me/919508787831" target="_blank" class="text-gray-700 hover:text-primary">Contact Us</a>
+        </div>
+        
+      </div>
+      <div class="flex items-center space-x-4">
+      
+        <a href="https://t.me/rankcounsel" class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-primary">
+          <i class="ri-telegram-line ri-lg"><img src="telegram.png" alt=""></i>
+        </a>
+        <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+          Get Free Counseling
+        </button>
+      </div>
+      </div>
+      </div>
+</nav>
+
+<!-- Left Sidebar Navigation -->
+<nav class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-[#1a1f2b] text-white p-4 overflow-y-auto z-40" style="background-color: rgb(0, 0, 0);">
+  <div class="mb-8">
+    <input type="text" placeholder="Search courses..." class="w-full bg-[#2a2f3b] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20">
+  </div>
+  
+  <div class="mb-8">
+    <h3 class="text-gray-400 text-sm font-semibold mb-4">RECENT COURSES</h3>
+    <a href="#" class="flex items-center space-x-3 text-gray-300 hover:text-white mb-2">
+      <i class="ri-code-line text-blue-400"></i>
+      <span>Python</span>
+    </a>
+  </div>
+
+  <div class="space-y-4">
+    <h3 class="text-gray-400 text-sm font-semibold mb-4">ACADEMIC LEVELS</h3>
+    
+    <!-- Board Level -->
+    <div class="sidebar-item">
+      <button class="sidebar-button flex items-center justify-between w-full text-gray-300 hover:text-white" onclick="toggleDropdown(this)" aria-expanded="false">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 flex items-center justify-center bg-blue-500 rounded-lg">
+            <i class="ri-building-line"></i>
+          </div>
+          <span>Board</span>
+        </div>
+        <i class="ri-arrow-down-s-line arrow"></i>
+      </button>
+      <div class="sidebar-dropdown pl-11 mt-2 space-y-2">
+        <a href="#" class="block text-gray-400 hover:text-white">Physics</a>
+        <a href="#" class="block text-gray-400 hover:text-white">Chemistry</a>
+        <a href="#" class="block text-gray-400 hover:text-white">Mathematics</a>
+      </div>
+    </div>
+
+    <!-- JEE Level -->
+    <div class="sidebar-item">
+      <button class="sidebar-button flex items-center justify-between w-full text-gray-300 hover:text-white" onclick="toggleDropdown(this)" aria-expanded="false">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 flex items-center justify-center bg-green-500 rounded-lg">
+            <i class="ri-book-open-line"></i>
+          </div>
+          <span>JEE</span>
+        </div>
+        <i class="ri-arrow-down-s-line arrow"></i>
+      </button>
+      <div class="sidebar-dropdown pl-11 mt-2 space-y-2">
+        <a href="#" class="block text-gray-400 hover:text-white">Engineering</a>
+        <a href="#" class="block text-gray-400 hover:text-white">Medical</a>
+      </div>
+    </div>
+
+    <!-- NEET Level -->
+    <div class="sidebar-item">
+      <button class="sidebar-button flex items-center justify-between w-full text-gray-300 hover:text-white" onclick="toggleDropdown(this)" aria-expanded="false">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 flex items-center justify-center bg-purple-500 rounded-lg">
+            <i class="ri-graduation-cap-line"></i>
+          </div>
+          <span>NEET</span>
+        </div>
+        <i class="ri-arrow-down-s-line arrow"></i>
+      </button>
+      <div class="sidebar-dropdown pl-11 mt-2 space-y-2">
+        <a href="#" class="block text-gray-400 hover:text-white">Physics</a>
+        <a href="#" class="block text-gray-400 hover:text-white">Chemistry</a>
+        <a href="#" class="block text-gray-400 hover:text-white">Biology</a>
+      </div>
+    </div>
+
+    <!-- Engeneering Level -->
+    <div class="sidebar-item">
+      <button class="sidebar-button flex items-center justify-between w-full text-gray-300 hover:text-white" onclick="toggleDropdown(this)" aria-expanded="false">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 flex items-center justify-center bg-orange-500 rounded-lg">
+            <i class="ri-trophy-line"></i>
+          </div>
+          <span>Engeneering</span>
+        </div>
+        <i class="ri-arrow-down-s-line arrow"></i>
+      </button>
+      <div class="sidebar-dropdown pl-11 mt-2 space-y-2">
+        <a href="#" class="block text-gray-400 hover:text-white">Engineering</a>
+        <a href="#" class="block text-gray-400 hover:text-white">Technology</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <a href="#" class="block text-center bg-[#2a2f3b] text-white py-2 rounded-lg hover:bg-[#2a2f3b]/80">
+      View All Courses
+    </a>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="flex-1 ml-64">
+
+<main class="pt-16">
+  <!-- Hero Section with Search -->
+  <section class="relative hero-gradient overflow-hidden min-h-[60vh] flex items-center" 
+    style="background-image: url('https://images.deepai.org/art-image/fcd9d23eeea54439b75fb2ffb084d957/create-an-image-of-a-computer-science-enginee_W9zS0pX.jpg');
+           background-size: cover;
+           background-position: center;
+           background-repeat: no-repeat;">
+    <div class="absolute inset-0 overflow-hidden bg-black bg-opacity-50">
+      <div id="particles-js"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-5xl font-bold text-gray-900 mb-6" style="color: aliceblue;">Your Complete JEE & NEET Resource Hub</h1>
+        <p class="text-xl text-gray-600 mb-12" style="color: white;">Access comprehensive study materials, practice papers, and video lectures - all in one place</p>
+        
+        <!-- Search and Filter Section -->
+        <div class="search-container p-6 rounded-xl max-w-2xl mx-auto">
+          <div class="flex flex-col md:flex-row gap-4">
+            <div class="flex-1">
+              <input type="text" placeholder="Search resources..." class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20">
+            </div>
+            <select class="px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20">
+              <option value="all">All Subjects</option>
+              <option value="physics">Physics</option>
+              <option value="chemistry">Chemistry</option>
+              <option value="mathematics">Mathematics</option>
+              <option value="biology">Biology</option>
+            </select>
+            <select class="px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20">
+              <option value="all">All Types</option>
+              <option value="notes">Notes</option>
+              <option value="papers">Papers</option>
+              <option value="videos">Videos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Study Materials Section -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-12">Study Materials</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Physics Resources -->
+        <div class="glass-effect p-6 rounded-xl shadow-lg resource-card">
+          <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+            <i class="ri-rocket-line text-primary ri-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Physics</h3>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600"><i class="ri-file-list-line mr-2"></i>Complete Notes</li>
+            <li class="flex items-center text-gray-600"><i class="ri-video-line mr-2"></i>Video Lectures</li>
+            <li class="flex items-center text-gray-600"><i class="ri-question-line mr-2"></i>Practice Problems</li>
+          </ul>
+          <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            Access Materials
+          </button>
+        </div>
+
+        <!-- Chemistry Resources -->
+        <div class="glass-effect p-6 rounded-xl shadow-lg resource-card">
+          <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full mb-4">
+            <i class="ri-flask-line text-secondary ri-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Chemistry</h3>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600"><i class="ri-file-list-line mr-2"></i>Chapter Notes</li>
+            <li class="flex items-center text-gray-600"><i class="ri-video-line mr-2"></i>Concept Videos</li>
+            <li class="flex items-center text-gray-600"><i class="ri-question-line mr-2"></i>Solved Examples</li>
+          </ul>
+          <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            Access Materials
+          </button>
+        </div>
+
+        <!-- Mathematics Resources -->
+        <div class="glass-effect p-6 rounded-xl shadow-lg resource-card">
+          <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+            <i class="ri-calculator-line text-primary ri-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Mathematics</h3>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600"><i class="ri-file-list-line mr-2"></i>Formula Sheets</li>
+            <li class="flex items-center text-gray-600"><i class="ri-video-line mr-2"></i>Problem Solving</li>
+            <li class="flex items-center text-gray-600"><i class="ri-question-line mr-2"></i>Mock Tests</li>
+          </ul>
+          <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            Access Materials
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Papers Section -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-12">Practice Papers</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- JEE Main Papers -->
+        <div class="glass-effect p-6 rounded-xl shadow-lg resource-card">
+          <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+            <i class="ri-draft-line text-primary ri-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">JEE Main Papers</h3>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600"><i class="ri-checkbox-circle-line mr-2"></i>Previous Year Papers</li>
+            <li class="flex items-center text-gray-600"><i class="ri-checkbox-circle-line mr-2"></i>Chapter-wise Tests</li>
+            <li class="flex items-center text-gray-600"><i class="ri-checkbox-circle-line mr-2"></i>Full Mock Tests</li>
+          </ul>
+          <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            Start Practice
+          </button>
+        </div>
+
+        <!-- JEE Advanced Papers -->
+        <div class="glass-effect p-6 rounded-xl shadow-lg resource-card">
+          <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full mb-4">
+            <i class="ri-file-paper-2-line text-secondary ri-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">JEE Advanced Papers</h3>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600"><i class="ri-checkbox-circle-line mr-2"></i>Previous Year Papers</li>
+            <li class="flex items-center text-gray-600"><i class="ri-checkbox-circle-line mr-2"></i>Topic-wise Tests</li>
+            <li class="flex items-center text-gray-600"><i class="ri-checkbox-circle-line mr-2"></i>Full Length Papers</li>
+          </ul>
+          <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            Start Practice
+          </button>
+        </div>
+
+        <!-- NEET Papers -->
+        <div class="glass-effect p-6 rounded-xl shadow-lg resource-card">
+          <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+            <i class="ri-mental-health-line text-primary ri-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">NEET Papers</h3>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600"><i class="ri-checkbox-circle-line mr-2"></i>Previous Year Papers</li>
+            <li class="flex items-center text-gray-600"><i class="ri-checkbox-circle-line mr-2"></i>Subject-wise Tests</li>
+            <li class="flex items-center text-gray-600"><i class="ri-checkbox-circle-line mr-2"></i>Full Mock Tests</li>
+          </ul>
+          <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            Start Practice
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Lectures Section -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-12">Video Lectures</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Physics Lectures -->
+        <div class="glass-effect p-6 rounded-xl shadow-lg resource-card">
+          <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+            <i class="ri-video-line text-primary ri-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Physics Lectures</h3>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600"><i class="ri-play-circle-line mr-2"></i>Mechanics</li>
+            <li class="flex items-center text-gray-600"><i class="ri-play-circle-line mr-2"></i>Electromagnetism</li>
+            <li class="flex items-center text-gray-600"><i class="ri-play-circle-line mr-2"></i>Modern Physics</li>
+          </ul>
+          <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            Watch Now
+          </button>
+        </div>
+
+        <!-- Chemistry Lectures -->
+        <div class="glass-effect p-6 rounded-xl shadow-lg resource-card">
+          <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full mb-4">
+            <i class="ri-video-line text-secondary ri-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Chemistry Lectures</h3>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600"><i class="ri-play-circle-line mr-2"></i>Organic Chemistry</li>
+            <li class="flex items-center text-gray-600"><i class="ri-play-circle-line mr-2"></i>Inorganic Chemistry</li>
+            <li class="flex items-center text-gray-600"><i class="ri-play-circle-line mr-2"></i>Physical Chemistry</li>
+          </ul>
+          <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            Watch Now
+          </button>
+        </div>
+
+        <!-- Mathematics Lectures -->
+        <div class="glass-effect p-6 rounded-xl shadow-lg resource-card">
+          <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+            <i class="ri-video-line text-primary ri-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Mathematics Lectures</h3>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600"><i class="ri-play-circle-line mr-2"></i>Calculus</li>
+            <li class="flex items-center text-gray-600"><i class="ri-play-circle-line mr-2"></i>Algebra</li>
+            <li class="flex items-center text-gray-600"><i class="ri-play-circle-line mr-2"></i>Coordinate Geometry</li>
+          </ul>
+          <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            Watch Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="../js/card-particles.js"></script>
+<script src="../js/modeSwitch.js"></script>
+<script>
+function toggleDropdown(button) {
+  // Toggle active class on button
+  button.classList.toggle('active');
+  
+  // Update aria-expanded
+  const isExpanded = button.classList.contains('active');
+  button.setAttribute('aria-expanded', isExpanded);
+  
+  // Toggle the dropdown
+  const dropdown = button.nextElementSibling;
+  dropdown.classList.toggle('active');
+}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="200" height="50">
+  <!-- Graduation Cap -->
+  <g transform="translate(10, 25) scale(0.4)">
+    <path d="M80 20L10 50L80 80L150 50L80 20Z" fill="#4F46E5"/>
+    <path d="M30 60V85L80 100L130 85V60L80 75L30 60Z" fill="#4F46E5"/>
+    <rect x="75" y="10" width="10" height="30" fill="#FFD700"/>
+  </g>
+  
+  <!-- RankCounsel Text -->
+  <text x="100" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold">
+    <tspan fill="#4F46E5">Rank</tspan>
+    <tspan fill="#10B981">Counsel</tspan>
+  </text>
+  
+  <!-- Underline -->
+  <line x1="100" y1="60" x2="350" y2="60" stroke="#4F46E5" stroke-width="2"/>
+</svg>

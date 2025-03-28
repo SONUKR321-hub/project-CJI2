@@ -1,0 +1,1 @@
+// Dark mode functionality is now handled by modeSwitch.js

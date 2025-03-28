@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RankCounsel - Free JEE & NEET Counseling Platform</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="card-animations.css">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#4F46E5',
+secondary: '#10B981'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+
+<!-- Particle JS for card animations -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body { font-family: 'Inter', sans-serif; }
+.testimonial-slider {
+scroll-behavior: smooth;
+scroll-snap-type: x mandatory;
+}
+.testimonial-slide {
+scroll-snap-align: start;
+}
+</style>
+
+
+
+</head>
+<body class="bg-white">
+<nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+  <a href="index.html" class="flex items-center">
+    <img src="logo.svg" alt="RankCounsel Logo" class="h-8" style="height: 4rem;">
+  </a>
+
+  <div class="hidden md:flex items-center space-x-8 ml-10">
+    <a href="index.html" class="text-gray-700 hover:text-primary">Home</a>
+    <a href="resources.html" class="text-gray-700 hover:text-primary">Resources</a>
+    <a href="counseling.html" class="text-gray-600 hover:text-primary">Counseling</a>
+    <a href="more.html" class="text-gray-700 hover:text-primary">More</a>
+    <a href="https://wa.me/919508787831" target="_blank" class="text-gray-700 hover:text-primary">Contact Us</a>
+  </div>
+  
+</div>
+<div class="flex items-center space-x-4">
+
+  <a href="https://t.me/rankcounsel" class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-primary">
+    <i class="ri-telegram-line ri-lg"><img src="telegram.png" alt=""></i>
+  </a>
+  <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+    Get Free Counseling
+  </button>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-16">
+<section class="relative hero-gradient overflow-hidden min-h-screen flex items-center">
+<div class="absolute inset-0 overflow-hidden">
+  <div id="particles-js"></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="max-w-2xl">
+<h1 class="text-5xl font-bold text-gray-900 mb-6">
+Expert Guidance for Your JEE & NEET Success Journey
+</h1>
+<p class="text-xl text-gray-600 mb-8">
+Get personalized mentorship from IITians, NITians, and MITians completely free. Join thousands of successful aspirants who achieved their dream rank.
+</p>
+<div class="flex flex-wrap gap-4">
+<button onclick="window.open('https://wa.me/919508787831', '_blank')" class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+Talk to a Mentor
+</button>
+<button onclick="window.open('https://t.me/rankcounsel', '_blank')" class="bg-white text-primary border-2 border-primary px-8 py-3 !rounded-button hover:bg-gray-50 whitespace-nowrap cursor-pointer">
+Join Telegram Channel
+</button>
+</div>
+<div class="mt-12 flex items-center gap-12">
+<div>
+<div class="text-3xl font-bold text-gray-900">10,000+</div>
+<div class="text-gray-600">Students Mentored</div>
+</div>
+<div>
+<div class="text-3xl font-bold text-gray-900">95%</div>
+<div class="text-gray-600">Success Rate</div>
+</div>
+<div>
+<div class="text-3xl font-bold text-gray-900">500+</div>
+<div class="text-gray-600">Expert Mentors</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<img src="https://public.readdy.ai/ai/img_res/3041cfc8cb2e44fa499492be2264913f.jpg"
+alt="Mentoring Session"
+class="rounded-2xl shadow-2xl">
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">
+Comprehensive support for your competitive exam preparation journey
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="services-grid">
+<div class="glass-effect p-6 rounded-lg shadow-lg card-hover">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+<i class="ri-book-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">JEE Preparation Strategy</h3>
+<p class="text-gray-600 mb-4">Personalized study plans and expert guidance for JEE Main & Advanced</p>
+<a href="#" class="text-primary font-medium hover:text-primary/80">Learn More →</a>
+</div>
+<div class="glass-effect p-6 rounded-lg shadow-lg card-hover">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full mb-4">
+<i class="ri-heart-pulse-line text-secondary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">NEET Guidance</h3>
+<p class="text-gray-600 mb-4">Complete preparation roadmap and subject-wise mentoring for NEET</p>
+<a href="#" class="text-primary font-medium hover:text-primary/80">Learn More →</a>
+</div>
+<div class="glass-effect p-6 rounded-lg shadow-lg card-hover">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+<i class="ri-graduation-cap-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">College Admission Support</h3>
+<p class="text-gray-600 mb-4">Expert counseling for college selection and admission process</p>
+<a href="#" class="text-primary font-medium hover:text-primary/80">Learn More →</a>
+</div>
+<div class="glass-effect p-6 rounded-lg shadow-lg card-hover">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full mb-4">
+<i class="ri-compass-line text-secondary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Career Counseling</h3>
+<p class="text-gray-600 mb-4">Professional guidance for making informed career decisions</p>
+<a href="#" class="text-primary font-medium hover:text-primary/80">Learn More →</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Meet Our Expert Mentors</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">
+Learn from the best minds from IITs, NITs, and top medical colleges
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+<img src="https://public.readdy.ai/ai/img_res/80e0755bbb4d76a207849f09bc42d31a.jpg"
+alt="Mentor"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-lg font-semibold text-gray-900">Dr. Aditya Sharma</h3>
+<p class="text-sm text-gray-600 mb-2">IIT Delhi, Ph.D.</p>
+<p class="text-sm text-gray-600 mb-4">Physics Expert | 8+ Years Experience</p>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+Book Session
+</button>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+<img src="https://public.readdy.ai/ai/img_res/0bfe288593637e42dbdd763d06ec2549.jpg"
+alt="Mentor"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-lg font-semibold text-gray-900">Dr. Priya Verma</h3>
+<p class="text-sm text-gray-600 mb-2">AIIMS Delhi</p>
+<p class="text-sm text-gray-600 mb-4">Biology Expert | 6+ Years Experience</p>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+Book Session
+</button>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+<img src="https://public.readdy.ai/ai/img_res/87ab0ecf1277b9cefc9c6bc8b6a88bf6.jpg"
+alt="Mentor"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-lg font-semibold text-gray-900">Rahul Mehta</h3>
+<p class="text-sm text-gray-600 mb-2">IIT Bombay</p>
+<p class="text-sm text-gray-600 mb-4">Mathematics Expert | 5+ Years Experience</p>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+Book Session
+</button>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+<img src="https://public.readdy.ai/ai/img_res/2ab6c7e04ea4f7ca8f3349725c638086.jpg"
+alt="Mentor"
+class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-lg font-semibold text-gray-900">Anjali Gupta</h3>
+<p class="text-sm text-gray-600 mb-2">NIT Trichy</p>
+<p class="text-sm text-gray-600 mb-4">Chemistry Expert | 7+ Years Experience</p>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+Book Session
+</button>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="bg-white text-primary border-2 border-primary px-8 py-3 !rounded-button hover:bg-gray-50 whitespace-nowrap cursor-pointer">
+Meet All Mentors
+</button>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Success Stories</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">
+Hear from our students who cracked JEE & NEET with our guidance
+</p>
+</div>
+<div class="relative">
+<div class="testimonial-slider flex overflow-x-auto pb-8 gap-6 hide-scrollbar">
+<div class="testimonial-slide flex-none w-full md:w-1/2 lg:w-1/3">
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-center mb-4">
+<img src="https://public.readdy.ai/ai/img_res/76f3646c78acdb4e50bc163c5ec9920a.jpg"
+alt="Student"
+class="w-12 h-12 rounded-full object-cover">
+<div class="ml-4">
+<h4 class="font-semibold text-gray-900">Rohit Kumar</h4>
+<p class="text-sm text-gray-600">AIR 156 | IIT Bombay</p>
+</div>
+</div>
+<p class="text-gray-600 italic">"The mentorship I received was invaluable. The personalized attention and strategic guidance helped me achieve my dream rank."</p>
+</div>
+</div>
+<div class="testimonial-slide flex-none w-full md:w-1/2 lg:w-1/3">
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-center mb-4">
+<img src="https://public.readdy.ai/ai/img_res/b98a7a89534a4f50e94a3ff720344cff.jpg"
+alt="Student"
+class="w-12 h-12 rounded-full object-cover">
+<div class="ml-4">
+<h4 class="font-semibold text-gray-900">Neha Patel</h4>
+<p class="text-sm text-gray-600">NEET Rank 342 | AIIMS Delhi</p>
+</div>
+</div>
+<p class="text-gray-600 italic">"The structured approach and constant support from mentors made my NEET preparation journey smooth and successful."</p>
+</div>
+</div>
+<div class="testimonial-slide flex-none w-full md:w-1/2 lg:w-1/3">
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<div class="flex items-center mb-4">
+<img src="https://public.readdy.ai/ai/img_res/327c3d10a6a1ef857d40fd9b495ec4a6.jpg"
+alt="Student"
+class="w-12 h-12 rounded-full object-cover">
+<div class="ml-4">
+<h4 class="font-semibold text-gray-900">Arjun Singh</h4>
+<p class="text-sm text-gray-600">AIR 89 | IIT Madras</p>
+</div>
+</div>
+<p class="text-gray-600 italic">"The mock tests and detailed analysis helped me identify and improve my weak areas. Forever grateful to the RankCounsel team."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Free Resources</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">
+Access high-quality study materials and guides
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-effect p-6 rounded-lg shadow-lg card-hover">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+<i class="ri-book-2-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Study Materials</h3>
+<p class="text-gray-600 mb-4">Comprehensive notes, solved papers, and practice sets</p>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+Download Now
+</button>
+</div>
+<div class="glass-effect p-6 rounded-lg shadow-lg card-hover">
+<div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full mb-4">
+<i class="ri-lightbulb-line text-secondary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Exam Tips</h3>
+<p class="text-gray-600 mb-4">Expert strategies and time management techniques</p>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+Access Tips
+</button>
+</div>
+<div class="glass-effect p-6 rounded-lg shadow-lg card-hover">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+<i class="ri-road-map-line text-primary ri-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Strategy Guides</h3>
+<p class="text-gray-600 mb-4">Subject-wise preparation roadmaps and guides</p>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+View Guides
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Get Free Counseling</h2>
+<p class="text-gray-600 mb-8">
+Fill out the form and our expert counselors will get back to you within 24 hours
+</p>
+<form class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+<input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" required>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+<input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" required>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+<input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" required>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Exam</label>
+<select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" required>
+<option value="">Select Exam</option>
+<option value="jee">JEE</option>
+<option value="neet">NEET</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+<textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary h-32" required></textarea>
+</div>
+<button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+Submit
+</button>
+</form>
+</div>
+<div class="lg:pl-12">
+<h3 class="text-xl font-semibold text-gray-900 mb-6">Other Ways to Connect</h3>
+<div class="space-y-6">
+<div class="flex items-center">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full">
+<i class="ri-telegram-line text-primary ri-xl"></i>
+</div>
+<div class="ml-4">
+<h4 class="font-medium text-gray-900">Join Our Telegram Channel</h4>
+<a href="https://t.me/rankcounsel" target="_blank" class="text-primary hover:text-primary/80">t.me/rankcounsel</a>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-full">
+<i class="ri-whatsapp-line text-green-600 ri-xl"></i>
+</div>
+<div class="ml-4">
+<h4 class="font-medium text-gray-900">WhatsApp Support</h4>
+<a href="https://wa.me/919508787831" target="_blank" class="text-primary hover:text-primary/80">+91 9508787831</a>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full">
+<i class="ri-mail-line text-primary ri-xl"></i>
+</div>
+<div class="ml-4">
+<h4 class="font-medium text-gray-900">Email Us</h4>
+<a href="mailto:rankcounsel@gmail.com" class="text-primary hover:text-primary/80">rankcounsel@gmail.com</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-white py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<a href="#" class="block mb-4">
+<img src="https://public.readdy.ai/ai/img_res/879c13efcec579e3c9b2c9e2f2f3802a.jpg" alt="RankCounsel Logo" class="h-8">
+</a>
+<p class="text-gray-400">
+Free expert counseling for JEE & NEET aspirants
+</p>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Services</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Mentors</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Resources</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+<div class="flex space-x-4">
+<a href="https://t.me/rankcounsel" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20">
+<i class="ri-telegram-line"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20">
+<i class="ri-youtube-line"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20">
+<i class="ri-instagram-line"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+<form class="space-y-4">
+<input type="email" placeholder="Enter your email" class="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary">
+<button type="submit" class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
+Subscribe
+</button>
+</form>
+</div>
+</div>
+<div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-400">
+<p>© 2025 RankCounsel. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script src="../js/modeSwitch.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 80, density: { enable: true, value_area: 800 } },
+    color: { value: "#4F46E5" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5, random: false },
+    size: { value: 3, random: true },
+    line_linked: { enable: true, distance: 150, color: "#4F46E5", opacity: 0.4, width: 1 },
+    move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" },
+      resize: true
+    },
+    modes: {
+      repulse: { distance: 100, duration: 0.4 },
+      push: { particles_nb: 4 }
+    }
+  },
+  retina_detect: true
+});
+
+// Add 3D tilt effect to cards
+document.querySelectorAll('.card-hover').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const xRotation = ((y - rect.height / 2) / rect.height) * 20;
+    const yRotation = ((x - rect.width / 2) / rect.width) * 20;
+    
+    card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale3d(1.05, 1.05, 1.05)`;
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+  });
+});
+
+// Smooth scroll animation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Intersection Observer for fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('opacity-100', 'translate-y-0');
+      entry.target.classList.remove('opacity-0', 'translate-y-10');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section > div').forEach((el) => {
+  el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+  observer.observe(el);
+});
+</script>
+<script src="../js/script.js"></script>
+
+<!-- WhatsApp Floating Button -->
+<div class="fixed bottom-6 right-6 z-50">
+  <a href="https://wa.me/919508787831" target="_blank" class="flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110">
+    <i class="ri-whatsapp-line text-white ri-2x"></i>
+  </a>
+</div>
+<script src="../js/card-particles.js"></script>
+</body>
+</html>
+
