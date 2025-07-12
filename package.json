@@ -4,7 +4,8 @@
   "description": "A comprehensive website for JEE counseling information and resources.",
   "main": "card-particles.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server . -p 8000 -o"
   },
   "keywords": [],
   "author": "",
