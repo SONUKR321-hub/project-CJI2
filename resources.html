@@ -83,7 +83,9 @@ body { font-family: 'Inter', sans-serif; }
     <div class="flex justify-between items-center h-16">
       <div class="flex items-center">
         <a href="index.html" class="flex items-center">
-          <img src="logo.svg" alt="RankCounsel Logo" class="h-8" style="height: 4rem;">
+          <div class="h-8 w-32 bg-primary rounded flex items-center justify-center text-white font-bold text-lg">
+            RankCounsel
+          </div>
         </a>
       
         <div class="hidden md:flex items-center space-x-8 ml-10">
@@ -98,7 +100,7 @@ body { font-family: 'Inter', sans-serif; }
       <div class="flex items-center space-x-4">
       
         <a href="https://t.me/rankcounsel" class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-primary">
-          <i class="ri-telegram-line ri-lg"><img src="telegram.png" alt=""></i>
+          <i class="ri-telegram-line ri-lg"></i>
         </a>
         <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-primary/90 whitespace-nowrap cursor-pointer">
           Get Free Counseling
@@ -109,9 +111,9 @@ body { font-family: 'Inter', sans-serif; }
 </nav>
 
 <!-- Left Sidebar Navigation -->
-<nav class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-[#1a1f2b] text-white p-4 overflow-y-auto z-40" style="background-color: rgb(0, 0, 0);">
+<nav class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-gray-900 text-white p-4 overflow-y-auto z-40">
   <div class="mb-8">
-    <input type="text" placeholder="Search courses..." class="w-full bg-[#2a2f3b] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20">
+    <input type="text" placeholder="Search courses..." class="w-full bg-gray-800 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20">
   </div>
   
   <div class="mb-8">
@@ -197,7 +199,7 @@ body { font-family: 'Inter', sans-serif; }
   </div>
 
   <div class="mt-8">
-    <a href="#" class="block text-center bg-[#2a2f3b] text-white py-2 rounded-lg hover:bg-[#2a2f3b]/80">
+    <a href="#" class="block text-center bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-700">
       View All Courses
     </a>
   </div>
@@ -415,8 +417,8 @@ body { font-family: 'Inter', sans-serif; }
   </section>
 </main>
 
-<script src="../js/card-particles.js"></script>
-<script src="../js/modeSwitch.js"></script>
+<script src="card-particles.js"></script>
+<script src="modeSwitch.js"></script>
 <script>
 function toggleDropdown(button) {
   // Toggle active class on button

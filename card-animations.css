@@ -1,0 +1,115 @@
+/* Card particle animations */
+.particle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glass-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Glowing border effect on hover */
+.card-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, #4F46E5, #10B981, #4F46E5);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-hover:hover::after {
+  opacity: 1;
+}
+
+/* Icon pulse animation */
+.card-hover .w-12 {
+  position: relative;
+  z-index: 2;
+}
+
+.card-hover:hover .w-12 {
+  animation: iconPulse 0.6s ease-out;
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Text shimmer effect */
+.card-hover h3 {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover:hover h3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 0.8s ease-out;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+.card-hover * {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover .text-primary {
+  color: #3730A3 !important;
+  transform: translateX(5px);
+}
+
+/* Background gradient animation */
+.card-hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+}
+
+.card-hover:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+}
